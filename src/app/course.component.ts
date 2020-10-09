@@ -16,6 +16,7 @@ import { Component } from '@angular/core';
     >
       Click Me
     </button>
+    <input #my_email (keyup.enter)="onSave(my_email.value)" />
     <input
       [value]="email"
       (keyup.enter)="email = $event.target.value; onWrite()"
@@ -24,7 +25,7 @@ import { Component } from '@angular/core';
 
     <h3>{{ title | uppercase }}</h3>
     <h3>{{ students | number }}</h3>
-    <h3>{{ price | currency: 'GIP':true:'1.2-2' }}</h3>
+    <h3>{{ price | currency: 'AUD':true:'1.2-2' }}</h3>
     <h3>{{ rating | number: '1.1-2' }}</h3>
     <h3>{{ releaseDate | date: 'fullDate' }}</h3>
     <p>{{ Lorem | summary: 50 }}</p>
