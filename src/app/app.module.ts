@@ -20,9 +20,11 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { FlexLayoutModule } from '@angular/flex-layout';
 
 import 'hammerjs';
+import { InputFormatDirective } from './input-format.directive';
+import { ZippyComponent } from './zippy/zippy.component';
 
 @NgModule({
-  declarations: [AppComponent, CourseComponent, CoursesComponent, SummaryPipe, FavoriteComponent, MovieSearchComponent, PrepositionPipe, PanelComponent, LikeComponent],
+  declarations: [AppComponent, CourseComponent, CoursesComponent, SummaryPipe, FavoriteComponent, MovieSearchComponent, PrepositionPipe, PanelComponent, LikeComponent, InputFormatDirective, ZippyComponent],
   imports: [BrowserModule, FormsModule, BrowserAnimationsModule, MatToolbarModule, FlexLayoutModule],
   providers: [CoursesService],
   bootstrap: [AppComponent],

@@ -11,7 +11,7 @@ import { Component, OnInit, Input, Output, EventEmitter, ViewEncapsulation } fro
   //     }
   //   `,
   // ],
-  encapsulation: ViewEncapsulation.ShadowDom,
+  // encapsulation: ViewEncapsulation.ShadowDom,
   // inputs: ['isFavorite'] another way of giving an input
 })
 export class FavoriteComponent implements OnInit {
