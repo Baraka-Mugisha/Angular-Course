@@ -11,6 +11,8 @@ export class AppComponent {
     title: 'Title',
     isFavorite: false,
   };
+  courses = [];
+
   tweet = {
     body: 'This is the body',
     isLiked: true,

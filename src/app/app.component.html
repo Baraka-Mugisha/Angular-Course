@@ -23,10 +23,15 @@
   <!-- <input type="text" appInputFormat [format]="'uppenmrcase'" /> -->
 
 
-<zippy title="Shipping Details">
-  Shipping Details Content
-</zippy>
+<div *ngIf="courses.length > 0; then shipping else billing"></div>
+<ng-template #shipping>
+  <zippy  title="Shipping Details">
+    Shipping Details Content
+  </zippy>
+</ng-template>
 
-<zippy title="Billing Details">
-  Billing Details Content
-</zippy>
+<ng-template #billing>
+  <zippy  title="Billing Details">
+    Billing Details Content
+  </zippy>
+</ng-template>
