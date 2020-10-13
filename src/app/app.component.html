@@ -22,8 +22,9 @@
 
   <!-- <input type="text" appInputFormat [format]="'uppenmrcase'" /> -->
 
+<!-- ------------------------------------------------------------ NGIF ---------------------------------------------- -->
 
-<div *ngIf="courses.length > 0; then shipping else billing"></div>
+<!-- <div *ngIf="courses.length > 0; then shipping else billing"></div>
 <ng-template #shipping>
   <zippy  title="Shipping Details">
     Shipping Details Content
@@ -34,4 +35,25 @@
   <zippy  title="Billing Details">
     Billing Details Content
   </zippy>
-</ng-template>
+</ng-template> -->
+
+
+<!------------------------------------------------------- NGSWITCHCASE -------------------------------------------------
+<ul class="nav nav-pills">
+  <li [class.active]="viewMode == 'map'"><a (click)="viewMode = 'map'" href="#">Map View</a></li>
+  <li [class.active]="viewMode == 'list'"><a (click)="viewMode = 'list'" href="#">List View</a></li>
+</ul>
+<div [ngSwitch]="viewMode">
+  <div *ngSwitchCase="'map'">Map View Content</div>
+  <div *ngSwitchCase="'list'">List View Content</div>
+  <div *ngSwitchDefault>otherwise</div>
+</div> -->
+
+---------------------------------------------NGFOR ------------------------------------------------------------
+
+<button (click)="onAdd()">Add Course</button>
+<ul>
+  <li *ngFor="let course of myCourses; index as i, even as isEven">
+    {{ i }} - {{ course.name }} <span *ngIf="isEven"> (even) </span>
+  </li>
+</ul>

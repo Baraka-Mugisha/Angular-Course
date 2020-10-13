@@ -11,7 +11,15 @@ export class AppComponent {
     title: 'Title',
     isFavorite: false,
   };
-  courses = [];
+  courses = []; // for ngIf
+  myCourses = [{
+    id: 1, name: 'course1'
+  },{
+    id: 2, name: 'course2'
+  },{
+    id: 3, name: 'course3'
+  }]
+  viewMode = 'map'; //for ngSwitchCase
 
   tweet = {
     body: 'This is the body',
@@ -20,5 +28,9 @@ export class AppComponent {
   };
   onFavoriteChanged(eventArgs) {
     console.log('favorite changed: ', eventArgs);
+  }
+
+  onAdd(){
+    this.myCourses.push({ id: 4, name: 'course4' })
   }
 }
