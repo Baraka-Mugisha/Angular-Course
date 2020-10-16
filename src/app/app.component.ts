@@ -12,13 +12,7 @@ export class AppComponent {
     isFavorite: false,
   };
   courses = []; // for ngIf
-  myCourses = [{
-    id: 1, name: 'course1'
-  },{
-    id: 2, name: 'course2'
-  },{
-    id: 3, name: 'course3'
-  }]
+  myCourses;
   viewMode = 'map'; //for ngSwitchCase
 
   tweet = {
@@ -32,5 +26,18 @@ export class AppComponent {
 
   onAdd(){
     this.myCourses.push({ id: 4, name: 'course4' })
+  }
+
+  loadCourses(){
+    this.myCourses = [{
+      id: 1, name: 'course1'
+    },{
+      id: 2, name: 'course2'
+    },{
+      id: 3, name: 'course3'
+    }]
+  }
+  trackCourse(index, course){
+    return course ? course.id : undefined
   }
 }
