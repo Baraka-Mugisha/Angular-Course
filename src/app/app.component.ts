@@ -40,4 +40,11 @@ export class AppComponent {
   trackCourse(index, course){
     return course ? course.id : undefined
   }
+
+  task = {
+    title: 'review applications',
+    assignee: {
+      name: 'null'
+    }
+  }
 }

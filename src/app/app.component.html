@@ -49,12 +49,16 @@
   <div *ngSwitchDefault>otherwise</div>
 </div> -->
 
----------------------------------------------NGFOR ------------------------------------------------------------
+<!-- ---------------------------------------------NGFOR ------------------------------------------------------------ -->
 
-<button (click)="onAdd()">Add Course</button>
+<!-- <button (click)="onAdd()">Add Course</button>
 <button (click)="loadCourses()">Load Courses</button>
 <ul>
   <li *ngFor="let course of myCourses; index as i, even as isEven, trackBy: trackCourse">
     {{ i }} - {{ course.name }} <span *ngIf="isEven"> (even) </span>
   </li>
-</ul>
+</ul> -->
+
+---------------safe traversal operator------------------
+<br />
+<span>{{ task.assignee?.name }}</span>
