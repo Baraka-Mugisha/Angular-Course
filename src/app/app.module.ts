@@ -22,9 +22,11 @@ import { FlexLayoutModule } from '@angular/flex-layout';
 import 'hammerjs';
 import { InputFormatDirective } from './input-format.directive';
 import { ZippyComponent } from './zippy/zippy.component';
+import { ContactFormComponent } from './contact-form/contact-form.component';
+import { CreateCourseComponent } from './create-course/create-course.component';
 
 @NgModule({
-  declarations: [AppComponent, CourseComponent, CoursesComponent, SummaryPipe, FavoriteComponent, MovieSearchComponent, PrepositionPipe, PanelComponent, LikeComponent, InputFormatDirective, ZippyComponent],
+  declarations: [AppComponent, CourseComponent, CoursesComponent, SummaryPipe, FavoriteComponent, MovieSearchComponent, PrepositionPipe, PanelComponent, LikeComponent, InputFormatDirective, ZippyComponent, ContactFormComponent, CreateCourseComponent],
   imports: [BrowserModule, FormsModule, BrowserAnimationsModule, MatToolbarModule, FlexLayoutModule],
   providers: [CoursesService],
   bootstrap: [AppComponent],
