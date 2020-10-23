@@ -13,7 +13,7 @@ export class NewCourseComponent {
   })
   secondForm
 
-  constructor(fb: FormBuilder){ // This is a second approch 
+  constructor(fb: FormBuilder){ // This is a second approach 
     this.secondForm = fb.group({
       name: ['', Validators.required],
       topics: fb.array([])
