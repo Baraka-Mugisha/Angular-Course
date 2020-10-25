@@ -3,7 +3,7 @@ import { CoursesService } from './courses.service';
 import { CoursesComponent } from './courses/courses.component';
 import { CourseComponent } from './course.component';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { NgModule, EventEmitter } from '@angular/core';
 
@@ -24,10 +24,13 @@ import { InputFormatDirective } from './input-format.directive';
 import { ZippyComponent } from './zippy/zippy.component';
 import { ContactFormComponent } from './contact-form/contact-form.component';
 import { CreateCourseComponent } from './create-course/create-course.component';
+import { SignupFormComponent } from './signup-form/signup-form.component';
+import { NewCourseComponent } from './new-course/new-course.component';
+import { ChangePasswordComponent } from './change-password/change-password.component';
 
 @NgModule({
-  declarations: [AppComponent, CourseComponent, CoursesComponent, SummaryPipe, FavoriteComponent, MovieSearchComponent, PrepositionPipe, PanelComponent, LikeComponent, InputFormatDirective, ZippyComponent, ContactFormComponent, CreateCourseComponent],
-  imports: [BrowserModule, FormsModule, BrowserAnimationsModule, MatToolbarModule, FlexLayoutModule],
+  declarations: [AppComponent, CourseComponent, CoursesComponent, SummaryPipe, FavoriteComponent, MovieSearchComponent, PrepositionPipe, PanelComponent, LikeComponent, InputFormatDirective, ZippyComponent, ContactFormComponent, CreateCourseComponent, SignupFormComponent, NewCourseComponent, ChangePasswordComponent],
+  imports: [BrowserModule, FormsModule, BrowserAnimationsModule, MatToolbarModule, FlexLayoutModule, ReactiveFormsModule],
   providers: [CoursesService],
   bootstrap: [AppComponent],
 })
