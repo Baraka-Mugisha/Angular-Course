@@ -7,14 +7,13 @@ import { HttpClient } from '@angular/common/http'
   styleUrls: ['./posts.component.css']
 })
 export class PostsComponent {
-  http: HttpClient
-  posts: Object;
+  posts: Object[];
   private url = 'https://jsonplaceholder.typicode.com/posts';
-  constructor(http: HttpClient) {
+  constructor(private http: HttpClient) {
     http.get(this.url)
       .subscribe(response => {
-        console.log('response ', response);
-        this.posts = response;
+        console.log('getting response... ', response);
+        this.posts = (response as Array<null>);
       })
     }
     createPost(input: HTMLInputElement){
@@ -22,9 +21,10 @@ export class PostsComponent {
 
       this.http.post(this.url,
         JSON.stringify(post))
-      .subscribe(response => {
-        console.log('response ', response);
-        this.posts = response;
+        .subscribe(response => {
+          post['id']=response['id'];
+          console.log('creating response... ');
+          this.posts.splice(0, 0, post);
       })
     }
 }
