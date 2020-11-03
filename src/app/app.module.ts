@@ -1,5 +1,6 @@
 import { SummaryPipe } from './summary.pipe';
 import { CoursesService } from './courses.service';
+import { PostService } from '../services/post.service';
 import { CoursesComponent } from './courses/courses.component';
 import { CourseComponent } from './course.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -33,7 +34,7 @@ import { PostsComponent } from './posts/posts.component';
 @NgModule({
   declarations: [AppComponent, CourseComponent, CoursesComponent, SummaryPipe, FavoriteComponent, MovieSearchComponent, PrepositionPipe, PanelComponent, LikeComponent, InputFormatDirective, ZippyComponent, ContactFormComponent, CreateCourseComponent, SignupFormComponent, NewCourseComponent, ChangePasswordComponent, PostsComponent],
   imports: [BrowserModule, FormsModule, BrowserAnimationsModule, MatToolbarModule, FlexLayoutModule, ReactiveFormsModule, HttpClientModule],
-  providers: [CoursesService],
+  providers: [CoursesService, PostService],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
