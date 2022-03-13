@@ -7,13 +7,25 @@ import { HttpClient } from '@angular/common/http';
   styleUrls: ['./posts.component.css'],
 })
 export class PostsComponent implements OnInit {
-  posts: Object;
-  constructor(http: HttpClient) {
-    http
-      .get('http://jsonplaceholder.typicode.com/posts')
-      .subscribe((response) => {
-        this.posts = response;
-      });
+  posts: Object[];
+  private url = 'http://jsonplaceholder.typicode.com/posts';
+  constructor(private http: HttpClient) {
+    http.get(this.url).subscribe((response) => {
+      this.posts = response as [];
+    });
+  }
+
+  createPost(input: HTMLInputElement) {
+    let post = {
+      title: input.value,
+    };
+    this.http.post(this.url, JSON.stringify(post)).subscribe((response) => {
+      post['id'] = response['id'];
+      this.posts.splice(0, 0, post);
+      input.value = '';
+
+      console.log(response, this.posts);
+    });
   }
 
   ngOnInit(): void {}
