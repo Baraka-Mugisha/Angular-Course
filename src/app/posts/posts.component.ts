@@ -9,6 +9,17 @@ import { PostService } from '../services/post.service';
 export class PostsComponent implements OnInit {
   posts: Object[];
   constructor(private service: PostService) {}
+  ngOnInit(): void {
+    this.service.getPosts().subscribe(
+      (response) => {
+        this.posts = response as [];
+      },
+      (error) => {
+        alert('An unexpected error occurred.');
+        console.log(error);
+      }
+    );
+  }
 
   createPost(input: HTMLInputElement) {
     let post = {
@@ -34,11 +45,6 @@ export class PostsComponent implements OnInit {
       let index = this.posts.indexOf(post);
       this.posts.splice(index, 1);
       console.log(response);
-    });
-  }
-  ngOnInit(): void {
-    this.service.getPosts().subscribe((response) => {
-      this.posts = response as [];
     });
   }
 }
