@@ -1,7 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 
-import 'rxjs/add/observable/throw';
 import { DataService } from './data.service';
 
 @Injectable({

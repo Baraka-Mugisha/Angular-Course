@@ -18,8 +18,7 @@ export class PostsComponent implements OnInit {
         this.posts = response as [];
       },
       (error) => {
-        // alert('An unexpected error occurred.');
-        console.log(error);
+        throw error;
       }
     );
   }
@@ -28,19 +27,18 @@ export class PostsComponent implements OnInit {
     let post = {
       title: input.value,
     };
+    this.posts.splice(0, 0, post);
+
     this.service.create(post).subscribe(
       (response) => {
         post['id'] = response['id'];
-        this.posts.splice(0, 0, post);
         input.value = '';
-
-        console.log(response, this.posts);
       },
       (error: AppError) => {
+        this.posts.splice(0, 1)
         if (error instanceof BadRequestError) {
           alert(error.originalError);
-        } else alert('An unexpected error occurred.');
-        console.log(error);
+        } else throw error;
       }
     );
   }
@@ -52,17 +50,13 @@ export class PostsComponent implements OnInit {
   }
 
   deletePost(post) {
-    this.service.delete(post.id).subscribe(
-      (response) => {
-        let index = this.posts.indexOf(post);
-        this.posts.splice(index, 1);
-        console.log(response);
-      },
-      (error: AppError) => {
-        if (error instanceof NotFoundError) {
-          alert('This post has already been deleted.');
-        } else throw error;
-      }
-    );
+    let index = this.posts.indexOf(post);
+    this.posts.splice(index, 1);
+    this.service.delete(post.id).subscribe(null, (error: AppError) => {
+      this.posts.splice(index, 0, post);
+      if (error instanceof NotFoundError) {
+        alert('This post has already been deleted.');
+      } else throw error;
+    });
   }
 }
