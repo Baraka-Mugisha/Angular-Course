@@ -6,14 +6,10 @@ import { HttpClient } from '@angular/common/http';
   templateUrl: './posts.component.html',
   styleUrls: ['./posts.component.css'],
 })
-export class PostsComponent implements OnInit {
+export class PostsComponent {
   posts: Object[];
   private url = 'http://jsonplaceholder.typicode.com/posts';
-  constructor(private http: HttpClient) {
-    http.get(this.url).subscribe((response) => {
-      this.posts = response as [];
-    });
-  }
+  constructor(private http: HttpClient) {}
 
   createPost(input: HTMLInputElement) {
     let post = {
@@ -43,5 +39,9 @@ export class PostsComponent implements OnInit {
       console.log(response);
     });
   }
-  ngOnInit(): void {}
+  ngOnInit(): void {
+    this.http.get(this.url).subscribe((response) => {
+      this.posts = response as [];
+    });
+  }
 }
