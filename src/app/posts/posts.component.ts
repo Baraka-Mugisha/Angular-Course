@@ -45,6 +45,12 @@ export class PostsComponent implements OnInit {
       let index = this.posts.indexOf(post);
       this.posts.splice(index, 1);
       console.log(response);
+    }, (error: Response) => {
+      if(error.status === 404){
+        alert('This post has already been deleted.')
+      }
+      else alert('An unexpected error occurred.');
+      console.log(error);
     });
   }
 }
