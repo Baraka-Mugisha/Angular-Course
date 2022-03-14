@@ -1,6 +1,7 @@
 import { SummaryPipe } from './summary.pipe';
 import { CoursesService } from './courses.service';
 import { PostService } from './services/post.service';
+import { DataService } from './services/data.service';
 import { CoursesComponent } from './courses/courses.component';
 import { CourseComponent } from './course.component';
 import { BrowserModule } from '@angular/platform-browser';
@@ -62,6 +63,7 @@ import { PostsComponent } from './posts/posts.component';
   providers: [
     CoursesService,
     PostService,
+    DataService,
     { provide: ErrorHandler, useClass: AppErrorHandler },
   ],
   bootstrap: [AppComponent],
