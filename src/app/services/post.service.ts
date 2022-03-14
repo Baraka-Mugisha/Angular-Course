@@ -6,6 +6,8 @@ import { AppError } from '../common/app-error';
 import { NotFoundError } from '../common/not-found-error';
 import { BadRequestError } from '../common/bad-request-error';
 
+import 'rxjs/add/observable/throw'
+
 @Injectable({
   providedIn: 'root',
 })

@@ -61,8 +61,7 @@ export class PostsComponent implements OnInit {
       (error: AppError) => {
         if (error instanceof NotFoundError) {
           alert('This post has already been deleted.');
-        } else alert('An unexpected error occurred.');
-        console.log(error);
+        } else throw error;
       }
     );
   }

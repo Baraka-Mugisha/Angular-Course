@@ -6,7 +6,8 @@ import { CourseComponent } from './course.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
-import { NgModule, EventEmitter } from '@angular/core';
+import { NgModule, EventEmitter, ErrorHandler } from '@angular/core';
+import { AppErrorHandler } from './common/app-error-handler';
 
 import { AppComponent } from './app.component';
 import { FavoriteComponent } from './favorite/favorite.component';
@@ -58,7 +59,11 @@ import { PostsComponent } from './posts/posts.component';
     ReactiveFormsModule,
     HttpClientModule,
   ],
-  providers: [CoursesService, PostService],
+  providers: [
+    CoursesService,
+    PostService,
+    { provide: ErrorHandler, useClass: AppErrorHandler },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
