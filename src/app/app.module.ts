@@ -1,11 +1,14 @@
 import { SummaryPipe } from './summary.pipe';
 import { CoursesService } from './courses.service';
+import { PostService } from './services/post.service';
+import { DataService } from './services/data.service';
 import { CoursesComponent } from './courses/courses.component';
 import { CourseComponent } from './course.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
-import { NgModule, EventEmitter } from '@angular/core';
+import { HttpClientModule } from '@angular/common/http';
+import { NgModule, EventEmitter, ErrorHandler } from '@angular/core';
+import { AppErrorHandler } from './common/app-error-handler';
 
 import { AppComponent } from './app.component';
 import { FavoriteComponent } from './favorite/favorite.component';
@@ -13,7 +16,6 @@ import { MovieSearchComponent } from './movie-search/movie-search.component';
 import { PrepositionPipe } from './preposition.pipe';
 import { PanelComponent } from './panel/panel.component';
 import { LikeComponent } from './like/like.component';
-
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -27,11 +29,43 @@ import { CreateCourseComponent } from './create-course/create-course.component';
 import { SignupFormComponent } from './signup-form/signup-form.component';
 import { NewCourseComponent } from './new-course/new-course.component';
 import { ChangePasswordComponent } from './change-password/change-password.component';
+import { PostsComponent } from './posts/posts.component';
 
 @NgModule({
-  declarations: [AppComponent, CourseComponent, CoursesComponent, SummaryPipe, FavoriteComponent, MovieSearchComponent, PrepositionPipe, PanelComponent, LikeComponent, InputFormatDirective, ZippyComponent, ContactFormComponent, CreateCourseComponent, SignupFormComponent, NewCourseComponent, ChangePasswordComponent],
-  imports: [BrowserModule, FormsModule, BrowserAnimationsModule, MatToolbarModule, FlexLayoutModule, ReactiveFormsModule],
-  providers: [CoursesService],
+  declarations: [
+    AppComponent,
+    CourseComponent,
+    CoursesComponent,
+    SummaryPipe,
+    FavoriteComponent,
+    MovieSearchComponent,
+    PrepositionPipe,
+    PanelComponent,
+    LikeComponent,
+    InputFormatDirective,
+    ZippyComponent,
+    ContactFormComponent,
+    CreateCourseComponent,
+    SignupFormComponent,
+    NewCourseComponent,
+    ChangePasswordComponent,
+    PostsComponent,
+  ],
+  imports: [
+    BrowserModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    MatToolbarModule,
+    FlexLayoutModule,
+    ReactiveFormsModule,
+    HttpClientModule,
+  ],
+  providers: [
+    CoursesService,
+    PostService,
+    DataService,
+    { provide: ErrorHandler, useClass: AppErrorHandler },
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
